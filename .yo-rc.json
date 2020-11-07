@@ -1,0 +1,16 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "artViewer",
+    "namespace": "eu.kuhnchris.artviewer",
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "viewname": "Main",
+    "ui5libs": "Local resources (OpenUI5)",
+    "newdir": true,
+    "namespaceURI": "eu/kuhnchris/artviewer",
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}
