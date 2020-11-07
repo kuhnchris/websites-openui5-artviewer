@@ -10,13 +10,12 @@ sap.ui.define([
          {
          Filename: "20200711.jpg",
          Name: "Art @ 11.Aug 2020",
-         URL: "./20200711.jpg"
+         URL: "./art/20200711.jpg"
         }
        ]
       });
       this.setModel(m);
-      this.byId("selectedGrid").setVisible(false);
-      this.setModel(new sap.ui.model.json.JSONModel({layout: ""}), "appview");
+      this.setModel(new sap.ui.model.json.JSONModel({"layout": "OneColumn"}), "appView");
       this.getModel("appView").setProperty("/layout", "OneColumn");
     }
 

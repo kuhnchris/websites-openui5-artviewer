@@ -1,28 +1,10 @@
-<mvc:View controllerName="eu.kuhnchris.artviewer.artViewer.controller.Main" displayBlock="true"
+<mvc:View controllerName="eu.kuhnchris.artviewer.artViewer.controller.Main" displayBlock="true" height="100%"
   xmlns="sap.m"
+  xmlns:f="sap.f"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns:layout="sap.ui.layout">
-  <App id="idAppControl">
-    <pages>
-      <Page title="{i18n>title}">
-        <content>
-          <layout:Splitter>
-            <layout:contentAreas>
-              <List items="{/files}">
-                <StandardListItem
-			title="{Name}"
-			description="{Filename}"
-			icon="{URL}"
-			iconDensityAware="false"
-			iconInset="false" />
-              </List>
-              <layout:Grid id="selectedGrid">
-              <Text text="test" />
-              </layout:Grid>
-            </layout:contentAreas>
-          </layout:Splitter>
-        </content>
-      </Page>
-    </pages>
+  <App id="app">
+    <f:FlexibleColumnLayout id="layout" layout="{appView>/layout}" backgroundDesign="Translucent">
+    </f:FlexibleColumnLayout>
   </App>
 </mvc:View>
