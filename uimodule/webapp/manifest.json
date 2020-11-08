@@ -63,53 +63,29 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.f.routing.Router",
+        "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "viewPath": "eu.kuhnchris.artviewer.artViewer.view",
-        "controlId": "layout",
-				"controlAggregation": "beginColumnPages",
+        "controlId": "app",
+        "controlAggregation": "pages",
         "async": true
       },
       "routes": [
         {
           "name": "RouteMain",
-          "pattern": "RouteMain",
+          "pattern": "",
           "target": [
             "TargetMain"
           ]
-        },
-        {
-					"pattern": "",
-					"name": "master",
-					"target": "master"
-				},
-				{
-					"pattern": "Art/{key}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				}
+        }
       ],
       "targets": {
         "TargetMain": {
           "viewType": "XML",
           "viewLevel": 1,
-          "viewId": "idAppControl",
+          "viewId": "app",
           "viewName": "Main"
-        },
-        "master": {
-					"viewName": "Master",
-					"viewLevel": 1,
-					"viewId": "master"
-				},
-				"object": {
-					"viewName": "Detail",
-					"viewId": "detail",
-					"viewLevel": 1,
-					"controlAggregation": "midColumnPages"
-				}
+        }
       }
     }
   }

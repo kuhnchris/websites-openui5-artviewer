@@ -2,9 +2,18 @@
   xmlns="sap.m"
   xmlns:f="sap.f"
   xmlns:mvc="sap.ui.core.mvc"
-  xmlns:layout="sap.ui.layout">
+  xmlns:layout="sap.ui.layout"
+  xmlns:custom="eu.kuhnchris.artviewer.artViewer.controls">
   <App id="app">
-    <f:FlexibleColumnLayout id="layout" layout="{appView>/layout}" backgroundDesign="Translucent">
-    </f:FlexibleColumnLayout>
+    <pages>
+      <Page>
+        <VBox>
+          <List items="{/files}" itemPress="showArt">
+            <StandardListItem type="Navigation" title="{Name}" description="{Filename}" icon="{URL}" iconDensityAware="false" iconInset="false" />
+          </List>
+            <custom:viewerjs url="{selected>/URL}" id="viewerJSObj"></custom:viewerjs>
+          </VBox>
+      </Page>
+    </pages>
   </App>
 </mvc:View>
