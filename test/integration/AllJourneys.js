@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5","eu/kuhnchris/artviewer/artViewer/test/integration/arrangements/Startup","eu/kuhnchris/artviewer/artViewer/test/integration/BasicJourney"],function(e,t){"use strict";e.extendConfig({arrangements:new t,pollingInterval:1})});

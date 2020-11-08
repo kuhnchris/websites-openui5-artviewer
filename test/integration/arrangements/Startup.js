@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5"],function(t){"use strict";return t.extend("eu.kuhnchris.artviewer.artViewer.test.integration.arrangements.Startup",{iStartMyApp:function(){this.iStartMyUIComponent({componentConfig:{name:"eu.kuhnchris.artviewer.artViewer",async:true,manifest:true}})}})});
