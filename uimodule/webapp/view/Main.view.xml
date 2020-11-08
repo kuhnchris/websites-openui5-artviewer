@@ -1,8 +1,6 @@
 <mvc:View controllerName="eu.kuhnchris.artviewer.artViewer.controller.Main" displayBlock="true" height="100%"
   xmlns="sap.m"
-  xmlns:f="sap.f"
   xmlns:mvc="sap.ui.core.mvc"
-  xmlns:layout="sap.ui.layout"
   xmlns:custom="eu.kuhnchris.artviewer.artViewer.controls">
   <App id="app">
     <pages>
