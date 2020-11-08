@@ -1,0 +1,50 @@
+name: ArtViewer Jobs
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  convertingArt:
+    runs-on: ubuntu-latest
+    name: Processing content
+    steps:
+    - uses: actions/checkout@v2
+    - name: Convert Art and create index JSON
+      id: convertArt
+      uses: ./.github/actions/convertArt
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v5
+      with:
+        author_name: 🤖 GitHub-Actions Workflow
+        author_email: beepboop@kuhnchris.eu
+        message: "Github Action: Converting art"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    name: Building LIVE branch
+    runs-on: ubuntu-latest
+    needs: convertingArt
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+    - name: "Install dependencies"
+      run: npm i
+    - name: "Build project"
+      run: npm run build:uimodule
+    - uses: actions/checkout@v2
+      with:
+        ref: live
+        path: /tmp/live
+    - name: "Upload project to live branch"
+      run: |
+        rm -R /tmp/live/*
+        cp -R uimodule/dist/* /tmp/live
+        cd /tmp/live
+        git config --global user.name "🤖 GitHub Actions"
+        git config --global user.email "beepboop@kuhnchris.eu"
+        git add .
+        git commit -m 'generated and pushed to live'
+        git push
+
+      
