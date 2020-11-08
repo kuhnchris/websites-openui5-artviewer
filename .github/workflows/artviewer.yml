@@ -27,20 +27,27 @@ jobs:
     needs: convertingArt
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: main
+        path: main
     - uses: actions/setup-node@v1
     - name: "Install dependencies"
-      run: npm i
+      run: |
+        cd main
+        npm i
     - name: "Build project"
-      run: npm run build:uimodule
+      run: |
+        cd main
+        npm run build:uimodule
     - uses: actions/checkout@v2
       with:
         ref: live
-        path: /tmp/live
+        path: live
     - name: "Upload project to live branch"
       run: |
-        rm -R /tmp/live/*
-        cp -R uimodule/dist/* /tmp/live
-        cd /tmp/live
+        rm -Rf live/*
+        cp -R main/uimodule/dist/* live/
+        cd live
         git config --global user.name "🤖 GitHub Actions"
         git config --global user.email "beepboop@kuhnchris.eu"
         git add .
