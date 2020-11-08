@@ -33,16 +33,23 @@ sap.ui.define(
                         });
 
                 }
-                //oRm.write("<span>HELLO WORLD</span>"); //output some html so we can see the control is working!
+                if (oControl.shouldShow !== undefined && oControl.shouldShow){
+                    oControl.viewer.show();
+                    oControl.shouldShow = false;
+                } else {
+                    oControl.shouldShow = false;
+                }
             },
             onAfterRendering: function () {
-                //if I need to do any post render actions, it will happen here
                 if (sap.ui.core.Control.prototype.onAfterRendering) {
                     sap.ui.core.Control.prototype.onAfterRendering.apply(this, arguments); //run the super class's method first
                 }
             },
             show: function(){
-                this.viewer.show();
+                if (this.viewer === undefined || this.viewer === null)
+                    this.shouldShow = true;
+                else
+                    this.viewer.show();
             }
         });
     }
