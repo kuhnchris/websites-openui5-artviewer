@@ -1,13 +1,16 @@
 <mvc:View xmlns="sap.m"
     xmlns:semantic="sap.f.semantic"
     xmlns:footerbar="sap.ushell.ui.footerbar"
-    xmlns:mvc="sap.ui.core.mvc" controllerName="eu.kuhnchris.artviewer.artViewer.controller.Detail">
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:custom="eu.kuhnchris.artviewer.artViewer.controls"
+    controllerName="eu.kuhnchris.artviewer.artViewer.controller.Detail">
     <semantic:SemanticPage id="detailPage" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" showFooter="true">
         <semantic:titleHeading>
             <Title text="{appName}" level="H2" id="textAppName"/>
         </semantic:titleHeading>
         <semantic:content>
-            <Image src="{/URL}"></Image>
+            <!--<Image src="{/URL}"></Image>-->
+            <custom:viewerjs url="{/URL}"></custom:viewerjs>
         </semantic:content>
     </semantic:SemanticPage>
 </mvc:View>

@@ -15,7 +15,7 @@ sap.ui.define([
       ownerSelect.setData(a1);
 
 			this.getRouter().navTo("object", {
-				key: a1.Name
+				key: a1.Filename
 			}, true);
     }
 
