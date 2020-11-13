@@ -19,6 +19,26 @@ sap.ui.define([
       this.setModel(ownerSelect, "selected");
       var m = new sap.ui.model.json.JSONModel(newJson);
       this.setModel(m);
+
+      this.getRouter().getRoute("ToImage").attachPatternMatched(this._onNavToImage, this);
+    },
+    _onNavToImage: function(oEvent){
+      var objParam = oEvent.getParameter("arguments").name;
+      this.pageParam = objParam;
+
+    },
+    onAfterRendering: function(){
+      if (this.pageParam !== undefined)
+      {
+
+        var bObj = this.getModel().getObject("/");
+        bObj.files.forEach((v)=>{
+          if (v.Filename === this.pageParam+".kra.png"){
+            this.getModel("selected").setData(v);
+            this._oViewer.show();
+          }
+        });
+      }
     },
     showArt: function(oEvent){
       // set the layout property of FCL control to show two columns

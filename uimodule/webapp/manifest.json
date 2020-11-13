@@ -76,6 +76,13 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "ToImage",
+          "pattern": "/show/{name}",
+          "target": [
+            "TargetMain"
+          ]
         }
       ],
       "targets": {
