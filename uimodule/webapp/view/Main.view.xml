@@ -7,7 +7,7 @@
       <Page>
         <VBox>
           <List items="{/files}" itemPress="showArt">
-            <StandardListItem type="Navigation" title="{Name}" description="{Filename}" icon="{URL}" iconDensityAware="false" iconInset="false" />
+            <StandardListItem type="Navigation" title="{Name}" description="{Filename}" icon="{Thumbnail}" iconDensityAware="false" iconInset="false" />
           </List>
             <custom:viewerjs url="{selected>/URL}" id="viewerJSObj"></custom:viewerjs>
           </VBox>
