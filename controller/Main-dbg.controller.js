@@ -11,7 +11,11 @@ sap.ui.define([
       rawArr.forEach(e => {
         var dStr = e.substr(3, 8);
         var dDate = new Date(dStr.substr(4, 2) + "." + dStr.substr(6, 2) + "." + dStr.substr(0, 4));
-        newJson.files.push({ URL: "./art/" + e.substr(3), Filename: e.substr(3), Date: dDate, Name: "Art-Practice: "+dDate.toLocaleDateString() });
+        var nameOut = dDate.toLocaleDateString();
+        if (nameOut === "Invalid Date")
+          nameOut = e.substr(3, e.length-3-8);
+        var thumb = "/art/"+e.substr(3, e.length-4-3)+"_thumb.png";
+        newJson.files.push({ URL: "./art/" + e.substr(3), Filename: e.substr(3), Date: dDate, Name: "Art-Practice: "+ nameOut, Thumbnail: thumb});
       });
 
       this._oViewer = this.byId("viewerJSObj");
