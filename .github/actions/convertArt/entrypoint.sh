@@ -26,16 +26,16 @@ for i in *.kra; do
         else
             echo "${cnt}: ${i}: cannot find mergedimage.png!"
         fi
-        if [ "${cnt}" -gt "1" ]; then
-            echo -n "," >>../list.json
-        fi
         cd ..
         rm -Rf .temp
     else
         echo "skipped because it already exists."
     fi
 
-    echo "\"../${i}.png\"" >>../list.json
+    if [ "${cnt}" -gt "1" ]; then
+        echo -n "," >>list.json
+    fi
+    echo "\"../${i}.png\"" >>list.json
 done
 
 echo -n "]" >>list.json
