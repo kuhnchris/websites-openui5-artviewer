@@ -27,7 +27,7 @@ sap.ui.define([
       this.setModel(models.createDeviceModel(), "device");
       var rawListModel = new sap.ui.model.json.JSONModel();
       this.setModel(rawListModel, "rawList");
-      rawListModel.loadData("./art/list.json", {}, false);
+      rawListModel.loadData("/art/list.json", {}, false);
       this.setModel(new sap.ui.model.json.JSONModel({
         Filename: "",
         Name: "",
